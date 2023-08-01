@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAG&DROP TO-DO APP</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+<body>
+    <div class="app">
+        <h1>DRAG&DROP TO-DO APP</h1>
+        <form id="new_task_form" class="flex_row">
+            <input type="text" id="new_task_text" name="text" value="ADD A TASK">
+            <select id="select_progress" name="select_progress">
+                <option value="to_do">TO DO</option>
+                <option value="in_progress">IN PROGRESS</option>
+                <option value="done">DONE</option>
+            </select>
+            <button type="submit" id="new_task_btn">+</button>
+        </form>
+        <div class="flex_row list_container">
+            <div class="list_column">
+                <div class="flex_row title">
+                    <h2>TO DO</h2>
+                    <div class="flex_row">
+                    <button id="sort_btn_to_do" class="sort_btn" type="button"></button>
+                    <p class="flex_row counter"></p>
+                    </div> 
+                </div>
+                <div id="to_do" class="tasks_container" data-status="to_do"></div>
+            </div>
+            <div class="list_column">
+                <div class="flex_row title">
+                    <h2>IN PROGRESS</h2>
+                    <div class="flex_row">
+
+                        <button id="sort_btn_in_progress" class="sort_btn" type="button"></button>
+                        <p class="flex_row counter"></p>  
+                    </div>
+                </div>
+                <div id="in_progress" class="tasks_container" data-status="in_progress">
+                </div>
+            </div>
+            <div class="list_column">
+                <div class="flex_row title">
+                    <h2>DONE</h2>
+                    <div class="flex_row">
+
+                        <button id="sort_btn_done" class="sort_btn" type="button"></button>
+                        <p class="flex_row counter"></p>  
+                    </div>
+                </div>
+                <div id="done" class="tasks_container" data-status="done">
+                </div>
+            </div>
+        </div>
+        <div class="hidden edit_form_wrap">
+            <button type="button" id="close_form_btn"></button>
+            <form id="edit_task_form" class="edit_form flex_row">
+                <input type="hidden" id="task_id">
+                <input type="text" id="edit_form_text" name="text" value="">
+                <select id="edit_select_progress" name="select_progress">
+                    <option value="to_do">TO DO</option>
+                    <option value="in_progress">IN PROGRESS</option>
+                    <option value="done">DONE</option>
+                </select>
+                <button type="submit" id="edit_task_btn"></button>
+            </form>
+        </div>
+        
+        <footer>
+            <a href="https://www.flaticon.com/free-icons/sort" title="sort icons">Icons created by Kiraaaaa6,</a>
+            <a href="https://www.flaticon.com/free-icons/trash" title="trash icons">Freepik,</a>
+            <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Pixel perfect</a> 
+            <a href="https://www.flaticon.com/free-icons/close" title="close icons">- Flaticon</a>
+        </footer>
+
+    </div>
+
+<script src="./storage.js"></script>
+<script src="./script.js"></script>
+<script src="./drag&drop.js"></script>
+</body>
+</html>
