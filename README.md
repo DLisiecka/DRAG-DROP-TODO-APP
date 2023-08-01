@@ -8,9 +8,9 @@ Open http://localhost:3000 with your browser to see the result.
 
 ### FEATURES
 
---> Add a task to one of the lists: TO DO, IN PROGRESS, DONE.
---> Drag and Drop function is available.
---> Delete or edit the selected card.
+* Add a task to one of the lists: TO DO, IN PROGRESS, DONE.
+* Drag and Drop function is available.
+* Delete or edit the selected card.
 
 ### TECHNOLOGY STACK
 
