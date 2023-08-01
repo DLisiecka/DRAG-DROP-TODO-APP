@@ -18,15 +18,19 @@ droppables.forEach(container => {
     
     container.addEventListener("drop", (e) => {
         if(!dataID) return;
+        
         container.classList.remove("hovered");
         const dataStatus = e.target.dataset.status;
+        
         if(!dataStatus) return;
+        
         const tasksDB = getDB();
         const newDB = tasksDB.map((el) => {
             if(el.id === dataID){
                 el.status = dataStatus;
                 el.lastEditDate = new Date().toISOString();
             }
+            
             return el;
         })
         setDB(newDB);
