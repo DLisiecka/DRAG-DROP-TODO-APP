@@ -6,7 +6,6 @@ const filteredStatus = (arr) => {
     return { toDoStatus, inProgressStatus, doneStatus}
 };
 
-
 const newTaskBtn = document.getElementById('new_task_btn');
 const newTaskInput = document.getElementById('new_task_text');
 const newTaskForm = document.getElementById('new_task_form');
