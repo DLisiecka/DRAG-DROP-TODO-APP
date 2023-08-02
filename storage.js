@@ -1,5 +1,3 @@
-const DB_KEY = 'db';
-
 const getStorage = (dbKey) => {
     const dbVal = localStorage.getItem(dbKey);
     const dbValParsed = JSON.parse(dbVal);
@@ -11,11 +9,5 @@ const setStorage = (dbKey, dbVal) => {
     localStorage.setItem(dbKey, dbValStringified);
 };
 
-const getDB = () => {
-    let getStorageVal = getStorage(DB_KEY);
-    if(getStorageVal === null){
-        getStorageVal = [];
-    }
-    return getStorageVal
-};
+const getDB = () => getStorage(DB_KEY) || [];
 const setDB = (db) => setStorage(DB_KEY, db);

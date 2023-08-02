@@ -36,7 +36,6 @@ droppables.forEach(container => {
         setDB(newDB);
         refreshView(newDB);
         dataID = undefined;
-    })
-    
-})
+    }) 
+});
 

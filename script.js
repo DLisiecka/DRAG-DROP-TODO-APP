@@ -119,7 +119,6 @@ const createNewDate = () => {
         window.navigator.language, 
         { dateStyle: 'full', timeStyle: 'medium' }
         ).format(new Date());
-
     };
     
 newTaskForm.addEventListener('submit', (event) => {
@@ -134,18 +133,25 @@ newTaskForm.addEventListener('submit', (event) => {
     });
     setDB(tasksDB);
     const {toDoStatus, inProgressStatus, doneStatus} = filteredStatus(tasksDB);
-    if(selectOption.value === 'to_do'){
-        listOfTasks(toDoStatus, toDoContainer);
-    }else if(selectOption.value === 'in_progress') {
-        listOfTasks(inProgressStatus, inProgressContainer);
-    }else if(selectOption.value === 'done'){
-        listOfTasks(doneStatus, doneContainer);
+    switch(selectOption.value){
+        case STATUS.TODO:
+            listOfTasks(toDoStatus, toDoContainer);
+            break;
+        case STATUS.IN_PROGRESS:
+            listOfTasks(inProgressStatus, inProgressContainer);
+            break;
+        case STATUS.DONE:
+            listOfTasks(doneStatus, doneContainer);
+            break;      
     }
-    
     newTaskInput.value = 'ADD A TASK';
 });
-
-    let sortOrder = 'asc';
+    const ORDER = {
+        ASC: 'asc',
+        DESC: 'desc'
+    };
+    const {ASC,DESC} = ORDER;
+    let sortOrder = ASC;
     
     const sortCard = (btn) => {
         btn.addEventListener('click', () => {
@@ -159,7 +165,7 @@ newTaskForm.addEventListener('submit', (event) => {
                     return {id, description, status, date, editTime, lastEditDate}
                 });
 
-                sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+                sortOrder = sortOrder === ASC ? DESC : ASC;
 
                 let sortedArr = mappedArr.sort((a,b) => {
                     if(sortOrder === 'desc'){

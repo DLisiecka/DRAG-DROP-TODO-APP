@@ -246,6 +246,7 @@ h1 {
 
 #edit_task_btn { 
     margin-right: 0.5rem;
+    width: 4rem;
     background-image: url(./resources/check.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
