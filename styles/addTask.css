@@ -1,0 +1,36 @@
+#new_task_form {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 21rem;
+    gap: 0.5rem;
+}
+
+
+#new_task_text {
+    font-weight: 600;
+    width: 30rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var( --form-color-font);
+    background-color: var(--input-background);
+}
+
+#select_progress {
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var( --form-color-font);
+    background-color: var(--select-background);
+}
+
+#new_task_btn {
+    font-size: 2rem;
+    font-weight: 600;
+    width: 4rem;
+    border: none;
+    background-color: var( --form-color-font);
+    border-radius: 1rem;
+    cursor: pointer;
+}

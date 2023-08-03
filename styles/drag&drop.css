@@ -1,0 +1,3 @@
+.hovered{
+    border: 2px dashed var(--drag-and-drop-border);
+}

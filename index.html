@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DRAG&DROP TO-DO APP</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/basic.css">
+    <link rel="stylesheet" href="./styles/addTask.css">
+    <link rel="stylesheet" href="./styles/listContainer.css">
+    <link rel="stylesheet" href="./styles/newCard.css">
+    <link rel="stylesheet" href="./styles/editForm.css">
+    <link rel="stylesheet" href="./styles/drag&drop.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
@@ -27,7 +32,9 @@
                 <div class="flex_row title">
                     <h2>TO DO</h2>
                     <div class="flex_row">
-                    <button id="sort_btn_to_do" class="sort_btn" type="button"></button>
+                    <button id="sort_btn_to_do" class="sort_btn" type="button">
+                        <img src="./resources/sort.png" alt="sort button" class="sort_img">
+                    </button>
                     <p class="flex_row counter"></p>
                     </div> 
                 </div>
@@ -38,7 +45,9 @@
                     <h2>IN PROGRESS</h2>
                     <div class="flex_row">
 
-                        <button id="sort_btn_in_progress" class="sort_btn" type="button"></button>
+                        <button id="sort_btn_in_progress" class="sort_btn" type="button">
+                            <img src="./resources/sort.png" alt="sort button" class="sort_img">
+                        </button>
                         <p class="flex_row counter"></p>  
                     </div>
                 </div>
@@ -50,7 +59,9 @@
                     <h2>DONE</h2>
                     <div class="flex_row">
 
-                        <button id="sort_btn_done" class="sort_btn" type="button"></button>
+                        <button id="sort_btn_done" class="sort_btn" type="button">
+                            <img src="./resources/sort.png" alt="sort button" class="sort_img">
+                        </button>
                         <p class="flex_row counter"></p>  
                     </div>
                 </div>
@@ -58,8 +69,10 @@
                 </div>
             </div>
         </div>
-        <div class="hidden edit_form_wrap">
-            <button type="button" id="close_form_btn"></button>
+        <div class="no_display edit_form_wrap">
+            <button type="button" id="close_form_btn">
+                <img src="./resources/close.png" alt="close edit form" class="close_img">
+            </button>
             <form id="edit_task_form" class="edit_form flex_row">
                 <input type="hidden" id="task_id">
                 <input type="text" id="edit_form_text" name="text" value="">
@@ -68,7 +81,9 @@
                     <option value="in_progress">IN PROGRESS</option>
                     <option value="done">DONE</option>
                 </select>
-                <button type="submit" id="edit_task_btn"></button>
+                <button type="submit" id="edit_task_btn" class="flex_row">
+                    <img src="./resources/check.png" alt="submit edited task" class="submit_img">
+                </button>
             </form>
         </div>
         
@@ -81,9 +96,9 @@
 
     </div>
 
-<script src="./consts.js"></script>
-<script src="./storage.js"></script>
-<script src="./script.js"></script>
-<script src="./drag&drop.js"></script>
+<script src="./scripts/consts.js"></script>
+<script src="./scripts/storage.js"></script>
+<script src="./scripts/script.js"></script>
+<script src="./scripts/drag&drop.js"></script>
 </body>
 </html>

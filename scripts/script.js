@@ -20,7 +20,7 @@ const sortBtnToDo = document.getElementById('sort_btn_to_do');
 const sortBtnInProgress = document.getElementById('sort_btn_in_progress');
 const sortBtnDone = document.getElementById('sort_btn_done');
 
-const editWrapForm = document.querySelector('.hidden.edit_form_wrap')
+const editWrapForm = document.querySelector('.no_display.edit_form_wrap')
 const editTaskForm = document.getElementById('edit_task_form');
 const editTaskInput = document.getElementById('edit_form_text');
 const editTaskBtn = document.getElementById('edit_task_btn');
@@ -51,7 +51,7 @@ const refreshView = (taskArray) => {
 
 const closeForm = () => {
     editWrapForm.classList.remove('visible');
-    editWrapForm.classList.add('hidden');
+    editWrapForm.classList.add('no_display');
 };
 
 const newCard = ({id, description, status, date, lastEditDate}) => {
@@ -70,19 +70,30 @@ const newCard = ({id, description, status, date, lastEditDate}) => {
     const cardEdit = document.createElement('div');
     const editBtn = document.createElement('button');
     const deleteBtn = document.createElement('button');
+    // const editImg = document.createElement('img');
 
     cardEdit.classList.add('card_edit');
     editBtn.classList.add('edit_btn');
     deleteBtn.classList.add('delete_btn');
+    // editImg.classList.add('edit_img');
+
+    const editImg = `
+            <img src="./resources/edit_note.svg" alt="edit task button" class="edit_img">
+    `
+    const deleteImg = `
+            <img src="./resources/delete.png" alt="delete task button" class="delete_img">
+    `
  
 
     cardDiv.innerHTML = content;
+    editBtn.innerHTML = editImg;
+    deleteBtn.innerHTML = deleteImg;
     cardEdit.appendChild(editBtn);
     cardEdit.appendChild(deleteBtn);
     cardDiv.appendChild(cardEdit);
 
     editBtn.addEventListener('click', () => {
-        editWrapForm.classList.remove('hidden');
+        editWrapForm.classList.remove('no_display');
         editWrapForm.classList.add('visible');
         const tasksDB = getDB();
         const filteredTaskDB = tasksDB.filter(el => el.id === id);

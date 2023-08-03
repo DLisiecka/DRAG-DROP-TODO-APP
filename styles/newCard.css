@@ -1,0 +1,72 @@
+.card_task {
+    position: relative;
+    height: auto;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 0.4px solid var(--border-color);
+    border-radius: 1rem;
+    background-color: var(--button-background);
+    cursor: move;
+}
+
+.card_task h2 {
+    margin-bottom: 0.5rem;
+}
+
+.card_task p {
+    font-size: 1.1rem;
+}
+
+.card-content {
+    position: absolute;
+    display: none;
+    margin-top: 1.2rem;
+}
+
+.card-content p {
+    font-weight: 700;
+    color: var(--last-edit-color);
+}
+
+.card_task:hover .card-content {
+    display: block;
+}
+
+
+/* EDIT BUTTONS */
+
+.card_edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}
+
+.edit_btn, .delete_btn {
+    height: 3rem;
+    width: 4rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--button-background);
+    cursor: pointer;
+}
+
+.edit_img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.delete_img{
+    height: 90%;
+    width: 70%;
+}
+
+.no_display {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
