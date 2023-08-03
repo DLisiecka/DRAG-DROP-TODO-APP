@@ -11,3 +11,10 @@ const setStorage = (dbKey, dbVal) => {
 
 const getDB = () => getStorage(DB_KEY) || [];
 const setDB = (db) => setStorage(DB_KEY, db);
+
+const updateDB = (func) => {
+    const db = getDB();
+    const updatedDB = func(db);
+    setDB(updatedDB);
+    return updatedDB; 
+}

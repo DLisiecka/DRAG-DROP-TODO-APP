@@ -42,7 +42,8 @@ newTaskInput.addEventListener('blur', () => {
 });
 
 //Refresh container with tasks
-const refreshView = (taskArray) => {
+const refreshView = () => {
+    const taskArray = getDB();
     const {toDoStatus, inProgressStatus, doneStatus} = filteredStatus(taskArray);
     listOfTasks(toDoStatus, toDoContainer);
     listOfTasks(inProgressStatus, inProgressContainer);
@@ -61,22 +62,20 @@ const newCard = ({id, description, status, date, lastEditDate}) => {
     cardDiv.setAttribute('data-id', id);
     const content = `
             <h2>${description}</h2>
-            <p>${date}</p>
+            <p>${createNewDate(date)}</p>
             <div class='card-content'>
             <p>Ostatnia edycja: </p>
-            <p>${lastEditDate}</p>
+            <p>${createNewDate(lastEditDate)}</p>
             </div>
     `
     const cardEdit = document.createElement('div');
     const editBtn = document.createElement('button');
     const deleteBtn = document.createElement('button');
-    // const editImg = document.createElement('img');
-
+    
     cardEdit.classList.add('card_edit');
     editBtn.classList.add('edit_btn');
     deleteBtn.classList.add('delete_btn');
-    // editImg.classList.add('edit_img');
-
+    
     const editImg = `
             <img src="./resources/edit_note.svg" alt="edit task button" class="edit_img">
     `
@@ -95,18 +94,15 @@ const newCard = ({id, description, status, date, lastEditDate}) => {
     editBtn.addEventListener('click', () => {
         editWrapForm.classList.remove('no_display');
         editWrapForm.classList.add('visible');
-        const tasksDB = getDB();
-        const filteredTaskDB = tasksDB.filter(el => el.id === id);
-        editTaskInput.value = filteredTaskDB[0].description;
-        editSelectOption.value = filteredTaskDB[0].status;
+        const newDB = updateDB((db) => db.filter(el => el.id === id));
+        editTaskInput.value = newDB[0].description;
+        editSelectOption.value = newDB[0].status;
         idInput.value = id;
     });
 
     deleteBtn.addEventListener('click', () => {
-        let tasksDB = getDB();
-        const filteredTaskDB = tasksDB.filter(el => el.id !== id);
-        setDB(filteredTaskDB);
-       refreshView(filteredTaskDB);
+        updateDB((db) => db.filter(el => el.id !== id))
+       refreshView();
     });
 
     closeTaskBtn.addEventListener('click', closeForm);
@@ -125,25 +121,26 @@ const listOfTasks = (list, container) => {
 };
 
 
-const createNewDate = () => {
+const createNewDate = (isoDate) => {
     return new Intl.DateTimeFormat(
         window.navigator.language, 
         { dateStyle: 'full', timeStyle: 'medium' }
-        ).format(new Date());
-    };
+    ).format(new Date(isoDate));
+};
     
 newTaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const tasksDB = getDB();
-    tasksDB.push({
-        id: new Date().getTime().toString(),
-        description: newTaskInput.value,
-        status: selectOption.value,
-        date: new Date().toISOString(),
-        lastEditDate: new Date().toISOString()
+    const newDB = updateDB((db) => {
+            db.push({
+            id: new Date().getTime().toString(),
+            description: newTaskInput.value,
+            status: selectOption.value,
+            date: new Date().toISOString(),
+            lastEditDate: new Date().toISOString()
+        });
+        return db;    
     });
-    setDB(tasksDB);
-    const {toDoStatus, inProgressStatus, doneStatus} = filteredStatus(tasksDB);
+    const {toDoStatus, inProgressStatus, doneStatus} = filteredStatus(newDB);
     switch(selectOption.value){
         case STATUS.TODO:
             listOfTasks(toDoStatus, toDoContainer);
@@ -185,10 +182,7 @@ newTaskForm.addEventListener('submit', (event) => {
                     return a.editTime < b.editTime ? -1 : 1
                 }
                 })
-
-                listOfTasks(sortedArr,container);
-                
-          
+                listOfTasks(sortedArr,container);        
             }
 
             if(btn === sortBtnToDo){
@@ -208,22 +202,20 @@ newTaskForm.addEventListener('submit', (event) => {
 
 editTaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const tasksDB = getDB();
-    const newDB = tasksDB.map( (el) => {
-        console.log(el)
-        if(el.id === idInput.value){
-            el.description = editTaskInput.value;
-            el.lastEditDate = new Date().toISOString();
-            el.status = editSelectOption.value;
-        }
-        return el
+    updateDB((db) => {
+        const newDB = db.map( (el) => {
+            if(el.id === idInput.value){
+                el.description = editTaskInput.value;
+                el.lastEditDate = new Date().toISOString();
+                el.status = editSelectOption.value;
+            }
+            return el
+        });
+        return newDB;
     });
-    
-    setDB(newDB);
-    refreshView(newDB);
+    refreshView();
     closeForm();
 
 });
 
-const tasksDB = getDB();
-refreshView(tasksDB);
+refreshView();
