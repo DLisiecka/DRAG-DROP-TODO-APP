@@ -1,0 +1,75 @@
+:root {
+    font-size: 62.5%;
+    --color-white :#fff;
+    --color-blue-light :#8FCACA;
+    --color-light : #D4F0F0;
+    --color-orange-light: #FFC8A2;
+    --color-red-light : #FFAEA5;
+    --color-orange-fair : #FFDBCC; 
+    --color-grey : #333;
+    --color-rose-light : #ECD5E3;
+    --color-orange-red : #FF968A;
+    --color-green-blue : #55CBCD; 
+
+    --input-background : var(--color-red-light);
+    --form-color-font: var(--color-white);
+    --button-background: var(--color-white);
+    --select-background: var(--color-orange-fair);
+    --edit-form-background: var(--color-rose-light);
+    --border-color: var(--color-orange-red);
+    --last-edit-color: var(--color-green-blue);
+    --header-color: var(--color-blue-light);
+    --app-background: var(--color-light);
+    --container-title-background: var(--color-orange-light);
+    --drag-and-drop-border: var(--color-grey);
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+.app {
+    position: relative;
+    background-color: var(--color-light);
+    min-height: 100%;
+}
+
+h1 {
+    font-family: 'Caprasimo', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+    color: var(--form-color-font);
+    background-color: var( --header-color);
+}
+
+.flex_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex_column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* FOOTER */
+
+footer{
+    position: absolute;
+    padding: 1rem;
+    margin-left: 1.2rem;
+    bottom: 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--form-color-font);
+}

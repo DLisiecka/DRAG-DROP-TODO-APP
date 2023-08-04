@@ -1,0 +1,68 @@
+.edit_form_wrap {
+    flex-direction: column;
+    position: fixed;
+    align-content: center;
+    padding: 2rem;
+    padding-top: 6rem;
+    background-color: var(--edit-form-background);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 1rem;
+    border: 0.4px solid var(--border-color);
+   
+}
+#edit_task_form { 
+    gap: 0.5rem;
+}
+#edit_form_text { 
+    font-weight: 600;
+    width: 30rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var( --form-color-font);
+    background-color: var(--input-background);
+}
+
+#edit_task_btn { 
+    margin-right: 0.5rem;
+    width: 4rem;
+    padding: 1rem;
+    background-color: var(--button-background);
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.submit_img{
+    height: 100%;
+    width: 100%;
+}
+
+#close_form_btn {
+    position:absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 3rem;
+    width: 3rem;
+    padding: 0.9rem;
+    background-color: var(--button-background);
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.close_img{
+    width: 100%;
+    height: 100%;
+}
+
+#edit_select_progress {
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: var(--form-color-font);
+    background-color: var(--select-background);
+}
