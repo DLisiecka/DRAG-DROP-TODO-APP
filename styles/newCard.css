@@ -70,3 +70,13 @@
 .visible {
     display: flex;
 }
+
+@media (max-width:1000px) {
+    .card_edit {
+        margin-top: 1rem;
+    }
+
+    .card-content {
+        display: none !important;
+    }
+}

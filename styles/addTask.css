@@ -34,3 +34,34 @@
     border-radius: 1rem;
     cursor: pointer;
 }
+
+@media (max-width:1000px) {
+    #new_task_form {
+        margin-inline: 0.5rem;
+    }
+}
+
+@media (max-width: 540px) {
+    #new_task_form {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "input input input"
+            "select select button";
+    }
+
+    #new_task_text {
+        width: auto;
+        grid-area: input;
+    }
+
+    #select_progress {
+        grid-area: select;
+    }
+
+    #new_task_btn {
+        width: auto;
+        grid-area: button;
+    }
+}

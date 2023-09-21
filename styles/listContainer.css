@@ -54,3 +54,29 @@
     background-color: var(--button-background);
 }
 
+
+@media (max-width:1000px) {
+    .list_container {
+        gap: 0.5rem;
+    }
+    .list_column {
+        margin: 0.5rem;
+    }
+}
+
+@media (max-width:818px){
+    .title {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .title > div {
+        align-self: end;
+    }
+}
+
+@media (max-width:510px) {
+    .title {
+        min-height: 94px;
+    }
+}
