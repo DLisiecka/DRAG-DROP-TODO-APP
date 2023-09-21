@@ -66,3 +66,27 @@
     color: var(--form-color-font);
     background-color: var(--select-background);
 }
+
+@media (max-width: 540px) {
+    #edit_task_form {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "input input input"
+            "select select button";
+    }
+
+    #edit_form_text {
+        height: fit-content;
+        grid-area: input;
+    }
+
+    #edit_select_progress {
+        grid-area: select;
+    }
+
+    #edit_task_btn {
+        grid-area: button;
+    }
+}

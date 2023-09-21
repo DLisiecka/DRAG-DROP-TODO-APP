@@ -94,9 +94,10 @@ const newCard = ({id, description, status, date, lastEditDate}) => {
     editBtn.addEventListener('click', () => {
         editWrapForm.classList.remove('no_display');
         editWrapForm.classList.add('visible');
-        const newDB = updateDB((db) => db.filter(el => el.id === id));
-        editTaskInput.value = newDB[0].description;
-        editSelectOption.value = newDB[0].status;
+        const db = getDB();
+        const editedItem = db.filter(el => el.id === id);
+        editTaskInput.value = editedItem[0].description;
+        editSelectOption.value = editedItem[0].status;
         idInput.value = id;
     });
 
